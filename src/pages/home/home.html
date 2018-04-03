@@ -3,16 +3,44 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>About Us</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="md-contact" item-start large></ion-icon>
+      <h2>{{code}}</h2>
+      <h2>{{name}}</h2>
+      <p>{{email}}</p>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="school" item-start large></ion-icon>
+      <h2>{{edu.major}} {{edu.faculty}}</h2>
+      <p>{{edu.university}}</p>
+    </ion-item>
+  </ion-card>
+  <ion-card>
+    <form (submit)="addSkill(skill.value)">
+      <ion-item>
+        <ion-icon name="book" item-start large></ion-icon>
+        <ion-label fixed>Add Skill</ion-label>
+        <ion-input type="text" value="" #skill></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button color="secondary" full type="submit">Add</button>
+      </ion-item>
+    </form>
+  </ion-card>
+  <ion-list>
+    <button ion-item *ngFor="let skill of skills,let i = index">
+        {{(i+1)}}. {{skill}}
+      <div class="item-note" item-end>
+          <ion-icon name="md-trash" item-start (click)="removeSkill(skill)"></ion-icon>
+      </div>
+    </button>
+  </ion-list>
 </ion-content>

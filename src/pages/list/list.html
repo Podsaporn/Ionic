@@ -3,21 +3,53 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>User Lists</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
+
+  <ion-list padding>
+    <button ion-item *ngFor="let user of userlists">
+      <ion-icon name="md-person" item-start></ion-icon>
+      <h2>{{user.name}}</h2>
+      <p>{{user.email}}</p>
+
     </button>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+
+  <!--
+  <ion-list padding>
+    <button ion-item>
+      <ion-icon name="md-person" item-start></ion-icon>
+      <h2>Leanne Graham</h2>
+      <p>Sincere@april.biz</p>
+    </button>
+    <button ion-item>
+      <ion-icon name="md-person" item-start></ion-icon>
+      <h2>Ervin Howell</h2>
+      <p>Shanna@melissa.tv</p>
+    </button>
+    <button ion-item>
+      <ion-icon name="md-person" item-start></ion-icon>
+      <h2>Clementine Bauch</h2>
+      <p>Nathan@yesenia.net"</p>
+    </button>
+    <button ion-item>
+      <ion-icon name="md-person" item-start></ion-icon>
+      <h2>Patricia Lebsack</h2>
+      <p>Julianne.OConner@kory.org</p>
+    </button>
+    <button ion-item>
+      <ion-icon name="md-person" item-start></ion-icon>
+      <h2>Chelsey Dietrich</h2>
+      <p>Lucio_Hettinger@annie.ca</p>
+    </button>
+    <button ion-item>
+      <ion-icon name="md-person" item-start></ion-icon>
+      <h2>Mrs. Dennis Schulist</h2>
+      <p>Karley_Dach@jasper.info</p>
+    </button>
+  </ion-list>
+  -->
 </ion-content>
